@@ -3,6 +3,8 @@ package com.reactnativedevicelocale;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 
+import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import java.util.TimeZone;
 import java.util.Locale;
@@ -12,8 +14,12 @@ import java.util.Map;
 import android.os.Build;
 
 public class DeviceLocaleModule extends ReactContextBaseJavaModule {
+
+  ReactApplicationContext reactContext;
+
   public DeviceLocaleModule(ReactApplicationContext reactContext) {
     super(reactContext);
+    this.reactContext = reactContext;
   }
 
   @Override
@@ -71,11 +77,30 @@ public class DeviceLocaleModule extends ReactContextBaseJavaModule {
   public Map<String, Object> getConstants() {
     final Map<String, Object> constants = new HashMap<>();
 
+    PackageManager packageManager = this.reactContext.getPackageManager();
+    String packageName = this.reactContext.getPackageName();
+
     constants.put("timezone", TimeZone.getDefault().getID());
     constants.put("deviceLocale", this.getCurrentLanguage());
     constants.put("deviceCountry", this.getCurrentCountry());
     constants.put("preferredLocales", this.getPreferredLocales());
+
+    constants.put("appVersion", "not available");
+    constants.put("appName", "not available");
+    constants.put("buildVersion", "not available");
+    constants.put("buildNumber", 0);
     
+    try {
+      PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
+      PackageInfo info = packageManager.getPackageInfo(packageName, 0);
+      String applicationName = this.reactContext.getApplicationInfo().loadLabel(this.reactContext.getPackageManager()).toString();
+      constants.put("appVersion", info.versionName);
+      constants.put("buildNumber", info.versionCode);
+      constants.put("appName", applicationName);
+    } catch (PackageManager.NameNotFoundException e) {
+      e.printStackTrace();
+    }
+
     return constants;
   }
 }

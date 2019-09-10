@@ -40,6 +40,9 @@ RCT_EXPORT_MODULE();
              @"deviceCountry": self.deviceCountry ?: [NSNull null],
              @"preferredLocales": self.preferredLocales ?: [NSNull null],
              @"timezone": self.timezone ?: [NSNull null],
-             };
+             @"appVersion": [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] ?: [NSNull null],
+             @"buildNumber": [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] ?: [NSNull null],
+             @"appName": [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"] ?: [NSNull null],
+            };
 }
 @end

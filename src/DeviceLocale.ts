@@ -6,5 +6,8 @@ export default {
   deviceCountry: DeviceLocale.deviceCountry,
   deviceLocale: DeviceLocale.deviceLocale,
   preferredLocales: DeviceLocale.preferredLocales,
-  timezone: DeviceLocale.timezone
+  timezone: DeviceLocale.timezone,
+  appVersion: DeviceLocale.appVersion,
+  buildNumber: DeviceLocale.buildNumber,
+  appName: DeviceLocale.appName
 };

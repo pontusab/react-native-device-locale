@@ -3,5 +3,8 @@ declare const _default: {
     deviceLocale: any;
     preferredLocales: any;
     timezone: any;
+    appVersion: any;
+    buildNumber: any;
+    appName: any;
 };
 export default _default;
