@@ -2,7 +2,6 @@ package com.reactnativedevicelocale;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.ReactMethod;
 
 import android.content.res.Configuration;
 import java.util.TimeZone;
