@@ -1,8 +1,8 @@
 
 {
-  "name": "react-native-device-locale",
+  "name": "@pontusab/react-native-device-locale",
   "author": "Pontus Abrahamsson",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An API to get locale settings.",
   "homepage": "https://github.com/pontusab/react-native-device-locale",
   "main": "build/DeviceLocale.js",
