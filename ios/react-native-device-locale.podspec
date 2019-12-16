@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/pontusab/react-native-device-locale.git", :tag => "v#{s.version}" }
   s.source_files   = 'DeviceLocale/**/*.{h,m}'
-  s.preserve_paths = 'DeviceLocale/**/*.{h,m}'
  
   s.dependency 'React'
 end
